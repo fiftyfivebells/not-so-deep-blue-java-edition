@@ -25,8 +25,21 @@ public class Bitboard {
   // Index of Files and Ranks
   private static final long[] files = {FileA, FileB, FileC, FileD, FileE, FileF, FileG, FileH};
   private static final long[] ranks = {Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8};
+
   /**
-   * Takes in an unsigned 64-bit integer (a "bitboard") and prints it out as an 8x8 square of bits which is intended to represent a chessboard.
+   * Returns a board with the square represented by the file and rank set to 1 with all other
+   * squares set to 0.
+   *
+   * @param file a string representing the file of a chess position
+   * @param rank a string representing the rank of a chess position
+   * @return a bitboard of zeros with the rank/file set to 1
+   */
+  public static long squareFromFileRank(String file, String rank) {
+    long f = files[(int) file.charAt(0) - 65];
+    long r = ranks[(int) Long.parseLong(rank) - 1];
+
+    return r & f;
+  }
    *
    * @param board a 64-bit integer (a "bitboard")
    */
