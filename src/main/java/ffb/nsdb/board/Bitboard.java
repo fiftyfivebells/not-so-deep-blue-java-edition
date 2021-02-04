@@ -22,6 +22,9 @@ public class Bitboard {
   public static final long Rank7 = Rank6 << 8;
   public static final long Rank8 = Rank7 << 8;
 
+  // Index of Files and Ranks
+  private static final long[] files = {FileA, FileB, FileC, FileD, FileE, FileF, FileG, FileH};
+  private static final long[] ranks = {Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8};
   /**
    * Takes in an unsigned 64-bit integer (a "bitboard") and prints it out as an 8x8 square of bits which is intended to represent a chessboard.
    *
