@@ -60,4 +60,8 @@ public class Bitboard {
     }
     System.out.println();
   }
+
+  private enum FileIndex {
+    A, B, C, D, E, F, G, H
+  }
 }
