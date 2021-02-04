@@ -40,6 +40,10 @@ public class Bitboard {
 
     return r & f;
   }
+
+  /**
+   * Takes in an unsigned 64-bit integer (a "bitboard") and prints it out as an 8x8 square of bits
+   * which is intended to represent a chessboard.
    *
    * @param board a 64-bit integer (a "bitboard")
    */
