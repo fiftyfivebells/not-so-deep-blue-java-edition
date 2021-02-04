@@ -21,4 +21,23 @@ public class Bitboard {
   public static final long Rank6 = Rank5 << 8;
   public static final long Rank7 = Rank6 << 8;
   public static final long Rank8 = Rank7 << 8;
+
+  /**
+   * Takes in an unsigned 64-bit integer (a "bitboard") and prints it out as an 8x8 square of bits which is intended to represent a chessboard.
+   *
+   * @param board a 64-bit integer (a "bitboard")
+   */
+  public static void printAsBits(long board) {
+    for (int row = 7; row >= 0; --row) {
+      for (int col = 0; col <= 7; ++col) {
+        if ((board & (1L << ((row * 8) + col))) != 0) {
+          System.out.print("1 ");
+        } else {
+          System.out.print("0 ");
+        }
+      }
+      System.out.println();
+    }
+    System.out.println();
+  }
 }
