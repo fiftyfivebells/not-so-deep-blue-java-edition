@@ -2,6 +2,9 @@ package ffb.nsdb.board;
 
 public class Bitboard {
 
+  // All or nothing
+  public static final long EMPTY = 0L;
+
   // Files
   public static final long FileA = 0x0101010101010101L;
   public static final long FileB = FileA << 1;
