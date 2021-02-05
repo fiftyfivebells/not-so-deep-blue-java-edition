@@ -38,7 +38,7 @@ public class Bitboard {
    * @return a bitboard of zeros with the rank/file set to 1
    */
   public static long squareFromFileRank(String file, String rank) {
-    long f = files[(int) file.charAt(0) - 65];
+    long f = files[(int) file.charAt(0) - 97];
     long r = ranks[(int) Long.parseLong(rank) - 1];
 
     return r & f;
