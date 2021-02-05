@@ -1,5 +1,7 @@
 package ffb.nsdb.board;
 
+import ffb.nsdb.Constants;
+
 public class Chessboard {
 
   // Various bitboards for different pieces
@@ -186,5 +188,38 @@ public class Chessboard {
 
       ++processed;
 
-  public Chessboard(String fen) {}
+      if ((processed % 8 == 0) && (processed != 64)) {
+        switch (processed / 8) {
+          case 1:
+            sb.append("        ");
+            sb.append(activeSide == Constants.WHITE ? "White " : "Black ");
+            sb.append("to move");
+            break;
+          case 2:
+            sb.append("        Halfmove clock: ");
+            sb.append(halfMoveClock);
+            break;
+          case 3:
+            sb.append("       Castling Rights: ");
+            sb.append((castleAvailability & 0b0001) != 0 ? "K" : "");
+            sb.append((castleAvailability & 0b0010) != 0 ? "Q" : "");
+            sb.append((castleAvailability & 0b0100) != 0 ? "k" : "");
+            sb.append((castleAvailability & 0b1000) != 0 ? "q" : "");
+            break;
+          case 4:
+            sb.append("     en Passant Square: ");
+            sb.append(enPassantTarget == Constants.NO_SQUARE ? "-" : "e4");
+            break;
+        }
+        sb.append("\n");
+        sb.append(--rank);
+        sb.append(" ");
+        position -= 16;
+      }
+      ++position;
+    }
+
+    sb.append("\n\n   A  B  C  D  E  F  G  H");
+    return sb.toString();
+  }
 }
