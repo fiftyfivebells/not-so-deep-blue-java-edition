@@ -1,6 +1,7 @@
 package ffb.nsdb.moves;
 
 public class Move {
+  private static final int SQUARE_BITS = 63;
   private static final int PIECE_BITS = 7;
   private static final int FLAG_BITS = 7;
 
