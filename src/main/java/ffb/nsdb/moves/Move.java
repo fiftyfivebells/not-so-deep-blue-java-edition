@@ -8,8 +8,17 @@ public class Move {
   private int move;
 
   @Override
-  public boolean equals(Object obj) {
-    return super.equals(obj);
+  public boolean equals(Object other) {
+    if (other == this) {
+      return true;
+    }
+    if (!(other instanceof Move)) {
+      return false;
+    }
+
+    Move m = (Move) other;
+
+    return (move & 0xffff) == (m.getMove() & 0xffff);
   }
 
   @Override
